@@ -44,7 +44,7 @@ void be_khoa(string ban_ma) {
 }
 
 int main() {
-    string ban_ro = "meet me after the toga party";
+    string ban_ro = "DAIHOCTHUYLOI";
     int khoa = 3;
 
     // Ma hoa
