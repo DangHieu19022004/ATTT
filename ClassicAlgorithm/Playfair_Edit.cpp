@@ -30,7 +30,6 @@ void taobang(string key){
 		}
 	}
 	cout << "kq = " << kq << endl;
-
 }
 
 string xulychuoi(string plaintext){
@@ -93,7 +92,25 @@ string mahoa(string plaintext){
 }
 
 string giaima(string kqmahoa){
-	
+	string kq = "";
+	for(int i=0; i<kqmahoa.length(); i+=2){
+		char a = kqmahoa[i];
+		char b = kqmahoa[i+1];
+		int ax, ay, bx, by;
+		tim(a, ax, ay);
+		tim(b, bx, by);
+		if(ax == bx){
+			kq += bang[ax][(ay - 1 + 5) % 5]; //-1 + 5 de quay vong
+			kq += bang[bx][(by - 1 + 5) % 5];
+		}else if(ay == by){
+			kq += bang[(ax - 1 + 5) % 5][ay];
+			kq += bang[(bx - 1 + 5) % 5][by];
+		}else{
+			kq += bang[ax][by];
+			kq += bang[bx][ay];
+		}
+	}
+	return kq;
 }
 
 int main(){
@@ -108,5 +125,5 @@ int main(){
 	string kqmahoa = mahoa(plaintext);
 	cout << "Ket qua ma hoa: " << kqmahoa;
 	
-	cout << "Ket qua chuoi ban dau" << giaima(kqmahoa);
+	cout << endl << "Ket qua chuoi ban dau: " << giaima(kqmahoa);
 }
